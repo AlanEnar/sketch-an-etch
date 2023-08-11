@@ -6,3 +6,7 @@ body {
     background-color: rgb(200, 200, 225);
     font-family: sans-serif;
 }
+
+#sketchpad {
+    background-color: rgb(210, 210, 245);
+}
