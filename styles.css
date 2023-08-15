@@ -9,6 +9,9 @@ body {
 
 #sketchpad {
     background-color: rgb(210, 210, 245);
+    border-color: aqua;
+    border-style: dashed;
+    border-width: 2px;
 
     display: flex;
     flex-direction: row;

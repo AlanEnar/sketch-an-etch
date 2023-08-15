@@ -22,6 +22,6 @@ for (var i = 0; i < squares.length; i++){
 }
 
 
-
+// Assign sketchpad dimensions
 sketchpad.style.width = squareSize * sketchResolution + "px";// Ensures the right number of squares per row
 sketchpad.style.height = squareSize * sketchResolution + "px";
