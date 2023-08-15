@@ -18,9 +18,6 @@ body {
     flex-wrap: wrap;
 }
 
-#sketchpad div {
-    background-color: blue;
-}
-
 .square {
+    background-color: white;
 }
