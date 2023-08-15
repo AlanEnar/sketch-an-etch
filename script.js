@@ -1,7 +1,8 @@
 const sketchpad = document.getElementById("sketchpad");
 let squares = [];
 let squareSize = 50;// Dimension of the squares in pixels
-let sketchResolution = 16;// Dimension of the overall sketchpad in number of squares
+let sketchResolution = 8;// Dimension of the overall sketchpad in number of squares
+let squareCount = sketchResolution * sketchResolution;// Number of squares
 
 // Fill the squares array with arrays of coordinates for the squares
 for (var i = 0; i < 16; i++){
@@ -11,8 +12,8 @@ for (var i = 0; i < 16; i++){
     squares.push([x, y]);
 }
 
-// Create divs using the coordinates in the squares array
-for (var i = 0; i < squares.length; i++){
+// Create the divs needed to fill the pad
+for (var i = 0; i < squareCount; i++){
     let sqrCoordinates = squares[i];
 
     let sqr = document.createElement("div");
