@@ -1,3 +1,6 @@
+//
+// Sketchpad Setup
+//
 const sketchpad = document.getElementById("sketchpad");
 let squareSize = 25;// Dimension of the squares in pixels
 let sketchResolution = 8;// Dimension of the overall sketchpad in number of squares
@@ -18,3 +21,14 @@ for (var i = 0; i < squareCount; i++){
 // Assign sketchpad dimensions
 sketchpad.style.maxWidth = squareSize * sketchResolution + "px";// Ensures the right number of squares per row
 sketchpad.style.maxHeight = squareSize * sketchResolution + "px";
+
+//
+// User Interaction
+//
+
+function mouseMoved (){
+    //console.log("mouse over pad");
+}
+
+
+sketchpad.addEventListener("mousemove", mouseMoved());
