@@ -19,12 +19,11 @@ for (var i = 0; i < squares.length; i++){
     //sqr.classList.add("square");
     sqr.style.width = squareSize + "px";
     sqr.style.height = squareSize + "px";
-    //sqr.textContent = i;
 
     sketchpad.appendChild(sqr);
 }
 
 
 // Assign sketchpad dimensions
-sketchpad.style.width = squareSize * sketchResolution + "px";// Ensures the right number of squares per row
-sketchpad.style.height = squareSize * sketchResolution + "px";
+sketchpad.style.maxWidth = squareSize * sketchResolution + "px";// Ensures the right number of squares per row
+sketchpad.style.maxHeight = squareSize * sketchResolution + "px";
