@@ -2,9 +2,10 @@
 // Sketchpad Setup
 //
 const sketchpad = document.getElementById("sketchpad");
-let squareSize = 25;// Dimension of the squares in pixels
-let sketchResolution = 8;// Dimension of the overall sketchpad in number of squares
-let squareCount = sketchResolution * sketchResolution;// Number of squares
+let squaresPerSide = 4;// Number of squares per row
+let squareCount = squaresPerSide * squaresPerSide;// Total number of squares
+let sketchDimension = 400;// Dimension of the overall sketchpad in pixels
+let squareSize = Math.floor(sketchDimension/squaresPerSide);// Number of squares
 
 // Create the divs needed to fill the pad
 for (var i = 0; i < squareCount; i++){
@@ -19,8 +20,8 @@ for (var i = 0; i < squareCount; i++){
 
 
 // Assign sketchpad dimensions
-sketchpad.style.maxWidth = squareSize * sketchResolution + "px";// Ensures the right number of squares per row
-sketchpad.style.maxHeight = squareSize * sketchResolution + "px";
+sketchpad.style.maxWidth = sketchDimension + "px";// Ensures the right number of squares per row
+sketchpad.style.maxHeight = sketchDimension + "px";
 
 //
 // User Interaction
