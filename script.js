@@ -27,9 +27,9 @@ sketchpad.style.maxHeight = sketchDimension + "px";
 // User Interaction
 //
 
-function mouseMoved (){
-    //console.log("mouse over pad");
+function mouseOver (){
+    console.log("mouse over pad");
 }
 
 
-sketchpad.addEventListener("mousemove", mouseMoved());
+sketchpad.addEventListener("mouseover", mouseOver);
