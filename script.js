@@ -26,10 +26,22 @@ sketchpad.style.maxHeight = sketchDimension + "px";
 //
 // User Interaction
 //
+let sketchpadSquares = document.querySelectorAll(".square");// Nodelist of sketchpad squares
 
-function mouseOver (){
-    console.log("mouse over pad");
+function darkenSquare (num){
+    console.log(i);
+}
+
+for (var i = sketchpadSquares.length; i--;){
+    let sSqr = sketchpadSquares[i];
+
+    sSqr.addEventListener("mouseover", darkenSquare);
 }
 
 
-sketchpad.addEventListener("mouseover", mouseOver);
+function mouseOver (){
+
+}
+
+
+//sketchpad.addEventListener("mouseover", mouseOver);
