@@ -28,16 +28,13 @@ sketchpad.style.maxHeight = sketchDimension + "px";
 //
 let sketchpadSquares = document.querySelectorAll(".square");// Nodelist of sketchpad squares
 
-function darkenSquare (obj){
-    obj.style.background = "#000000";
-    //console.log("hi");
-}
-
 for (var i = sketchpadSquares.length; i--;){
     let sSqr = sketchpadSquares[i];
-   
+
     sSqr.addEventListener("mouseover", () => {
-        sSqr.style.background = "#000000";
+        let squareStyle = window.getComputedStyle(sSqr);
+        //console.log(squareStyle.backgroundColor);
+        //sSqr.style.background -= 10;
     });
 }
 
