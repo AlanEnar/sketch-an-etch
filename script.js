@@ -29,14 +29,16 @@ sketchpad.style.maxHeight = sketchDimension + "px";
 let sketchpadSquares = document.querySelectorAll(".square");// Nodelist of sketchpad squares
 
 function darkenSquare (obj){
-    //obj.style.background -= 10;
-    console.log("hi");
+    obj.style.background = "#000000";
+    //console.log("hi");
 }
 
 for (var i = sketchpadSquares.length; i--;){
     let sSqr = sketchpadSquares[i];
-
-    sSqr.addEventListener("mouseleave", darkenSquare);
+   
+    sSqr.addEventListener("mouseover", () => {
+        sSqr.style.background = "#000000";
+    });
 }
 
 
