@@ -28,14 +28,15 @@ sketchpad.style.maxHeight = sketchDimension + "px";
 //
 let sketchpadSquares = document.querySelectorAll(".square");// Nodelist of sketchpad squares
 
-function darkenSquare (num){
-    console.log(i);
+function darkenSquare (obj){
+    //obj.style.background -= 10;
+    console.log("hi");
 }
 
 for (var i = sketchpadSquares.length; i--;){
     let sSqr = sketchpadSquares[i];
 
-    sSqr.addEventListener("mouseover", darkenSquare);
+    sSqr.addEventListener("mouseleave", darkenSquare);
 }
 
 
