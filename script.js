@@ -33,8 +33,9 @@ for (var i = sketchpadSquares.length; i--;){
 
     sSqr.addEventListener("mouseover", () => {
         let squareColor = window.getComputedStyle(sSqr).backgroundColor;// Returns a string
-        console.log(squareColor);
-        //sSqr.style.backgroundColor = "rgb(10, 10, 10)"; // This turns the squares black
+        //console.log(squareColor);
+        
+        sSqr.style.backgroundColor = "rgb(0, 0, 0)"; // This turns the squares black
     });
 }
 
