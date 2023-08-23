@@ -7,6 +7,10 @@ let squareCount = squaresPerSide * squaresPerSide;// Total number of squares
 let sketchDimension = 400;// Dimension of the overall sketchpad in pixels
 let squareSize = Math.floor(sketchDimension/squaresPerSide);// Number of squares
 
+// Assign sketchpad dimensions
+sketchpad.style.maxWidth = sketchDimension + "px";// Ensures the right number of squares per row
+sketchpad.style.maxHeight = sketchDimension + "px";
+
 // Create the divs needed to fill the pad
 for (var i = 0; i < squareCount; i++){
     let sqr = document.createElement("div");
@@ -18,14 +22,11 @@ for (var i = 0; i < squareCount; i++){
     sketchpad.appendChild(sqr);
 }
 
-
-// Assign sketchpad dimensions
-sketchpad.style.maxWidth = sketchDimension + "px";// Ensures the right number of squares per row
-sketchpad.style.maxHeight = sketchDimension + "px";
-
 //
 // User Interaction
 //
+
+// Mouse interaction
 let sketchpadSquares = document.querySelectorAll(".square");// Nodelist of sketchpad squares
 
 for (var i = sketchpadSquares.length; i--;){
@@ -44,5 +45,15 @@ function mouseOver (){
 
 }
 
+// Button interaction
+const sizeButton = document.getElementById("size-button");
 
-//sketchpad.addEventListener("mouseover", mouseOver);
+function changeSketchRes (){
+    let newRes = prompt("Enter an integer between 1 and 64 to set the resolution for the sketchpad", 10);
+
+    squaresPerSide = newRes;
+}
+
+sizeButton.addEventListener("click", changeSketchRes);
+
+
