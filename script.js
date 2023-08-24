@@ -7,6 +7,11 @@ let squareCount = squaresPerSide * squaresPerSide;// Total number of squares
 let sketchDimension = 400;// Dimension of the overall sketchpad in pixels
 let squareSize = Math.floor(sketchDimension/squaresPerSide);// Number of squares
 
+function updateDimensions (){
+    squareCount = squaresPerSide * squaresPerSide;
+    squareSize = Math.floor(sketchDimension/squaresPerSide);
+}
+
 // Assign sketchpad dimensions
 sketchpad.style.maxWidth = sketchDimension + "px";// Ensures the right number of squares per row
 sketchpad.style.maxHeight = sketchDimension + "px";
@@ -22,7 +27,6 @@ function removeChildren (parent){
 function createSketchGrid (){
     removeChildren(sketchpad);// Clear any previous children of the sketchpad
     
-    console.log(squareCount);
     // Create the divs needed to fill the pad
     for (var i = 0; i < squareCount; i++){
         let sqr = document.createElement("div");
@@ -43,30 +47,31 @@ createSketchGrid();
 // Mouse interaction
 let sketchpadSquares = document.querySelectorAll(".square");// Nodelist of sketchpad squares
 
-for (var i = sketchpadSquares.length; i--;){
-    let sSqr = sketchpadSquares[i];
+function drawSketch (){
+    for (var i = sketchpadSquares.length; i--;){
+        let sSqr = sketchpadSquares[i];
 
-    sSqr.addEventListener("mouseover", () => {
-        let squareColor = window.getComputedStyle(sSqr).backgroundColor;// Returns a string
-        //console.log(squareColor);
-        
-        sSqr.style.backgroundColor = "rgb(0, 0, 0)"; // This turns the squares black
-    });
+        sSqr.addEventListener("mouseover", () => {
+            let squareColor = window.getComputedStyle(sSqr).backgroundColor;// Returns a string
+            //console.log(squareColor);
+            
+            sSqr.style.backgroundColor = "rgb(0, 0, 0)"; // This turns the squares black
+        });
+    }
 }
+drawSketch();
 
 // Button interaction
 const sizeButton = document.getElementById("size-button");
 
 function changeSketchRes (){
-    let newRes = prompt("Enter an integer between 1 and 64 to set the resolution for the sketchpad", 10);
-
-    squaresPerSide = newRes;
-    squareCount = squaresPerSide * squaresPerSide;// Update squareCount
+    squaresPerSide = prompt("Enter an integer between 1 and 64 to set the resolution for the sketchpad", 10);
+    updateDimensions();// Update number of squares and size of squares
     
     // Reset the grid with new square count
     createSketchGrid();
 }
 
-sizeButton.addEventListener("click", changeSketchRes);
+sizeButton.addEventListener("click", changeSketchRes);// Run the prompt & update pad
 
 
