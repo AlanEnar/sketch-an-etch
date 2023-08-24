@@ -4,10 +4,10 @@
 const sketchpad = document.getElementById("sketchpad");
 const sizeButton = document.getElementById("size-button");
 
-let squaresPerSide = 4;// Number of squares per row
+let squaresPerSide = 6;// Number of squares per row
 let squareCount = squaresPerSide * squaresPerSide;// Total number of squares
 let sketchDimension = 400;// Dimension of the overall sketchpad in pixels
-let squareSize = Math.floor(sketchDimension/squaresPerSide);// Number of squares
+let squareSize = sketchDimension/squaresPerSide;// Number of squares
 
 // Assign sketchpad dimensions
 sketchpad.style.maxWidth = sketchDimension + "px";// Ensures the right number of squares per row
@@ -16,7 +16,7 @@ sketchpad.style.maxHeight = sketchDimension + "px";
 // Updates squareCount and squareSize
 function updateDimensions (){
     squareCount = squaresPerSide * squaresPerSide;
-    squareSize = Math.floor(sketchDimension/squaresPerSide);
+    squareSize = sketchDimension/squaresPerSide;
 }
 
 // Removes all children of an element
