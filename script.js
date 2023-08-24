@@ -7,6 +7,7 @@ let squareCount = squaresPerSide * squaresPerSide;// Total number of squares
 let sketchDimension = 400;// Dimension of the overall sketchpad in pixels
 let squareSize = Math.floor(sketchDimension/squaresPerSide);// Number of squares
 
+// Updates squareCount and squareSize
 function updateDimensions (){
     squareCount = squaresPerSide * squaresPerSide;
     squareSize = Math.floor(sketchDimension/squaresPerSide);
@@ -23,8 +24,8 @@ function removeChildren (parent){
     }
 }
 
-// Populate the sketchpad with a grid
-function createSketchGrid (){
+// Populate the sketchpad with squares
+function createSketchSquares (){
     removeChildren(sketchpad);// Clear any previous children of the sketchpad
     
     // Create the divs needed to fill the pad
@@ -38,16 +39,16 @@ function createSketchGrid (){
         sketchpad.appendChild(sqr);
     }
 };
-createSketchGrid();
+createSketchSquares();
 
 //
 // User Interaction
 //
 
 // Mouse interaction
-let sketchpadSquares = document.querySelectorAll(".square");// Nodelist of sketchpad squares
-
 function drawSketch (){
+    let sketchpadSquares = document.querySelectorAll(".square");// Nodelist of sketchpad squares
+
     for (var i = sketchpadSquares.length; i--;){
         let sSqr = sketchpadSquares[i];
 
@@ -59,19 +60,31 @@ function drawSketch (){
         });
     }
 }
-drawSketch();
 
 // Button interaction
 const sizeButton = document.getElementById("size-button");
 
-function changeSketchRes (){
-    squaresPerSide = prompt("Enter an integer between 1 and 64 to set the resolution for the sketchpad", 10);
+function setSketchRes (sps){
+    squaresPerSide = sps;// Squares per side is passed when the function is called
     updateDimensions();// Update number of squares and size of squares
     
     // Reset the grid with new square count
-    createSketchGrid();
+    createSketchSquares();
+    drawSketch();
 }
 
+function changeSketchRes (){
+    // Run a new sketchpad with a user-inputed number of squares"
+    setSketchRes(prompt("Enter an integer between 1 and 64 to set the resolution for the sketchpad", 10));
+}
+
+
+
+//
+// Run interaction
+//
+
+// Initial Setup
+setSketchRes(squaresPerSide);// Run the sketchpad with the default number of squares
+
 sizeButton.addEventListener("click", changeSketchRes);// Run the prompt & update pad
-
-
