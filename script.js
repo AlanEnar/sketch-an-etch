@@ -3,6 +3,7 @@
 //
 const sketchpad = document.getElementById("sketchpad");
 const sizeButton = document.getElementById("size-button");
+const clearButton = document.getElementById("clear-button");
 
 let squaresPerSide = 6;// Number of squares per row
 let squareCount = squaresPerSide * squaresPerSide;// Total number of squares
@@ -54,7 +55,7 @@ function drawSketch (){
         let sSqr = sketchpadSquares[i];
 
         sSqr.addEventListener("mouseover", () => {
-            let squareColor = window.getComputedStyle(sSqr).backgroundColor;// Returns a string
+            //let squareColor = window.getComputedStyle(sSqr).backgroundColor;// Returns a string
             //console.log(squareColor);
             
             sSqr.style.backgroundColor = "rgb(0, 0, 0)"; // This turns the squares black
@@ -77,6 +78,16 @@ function changeSketchRes (){
     setSketchRes(prompt("Enter an integer between 1 and 64 to set the resolution for the sketchpad", 10));
 }
 
+function clearSketch (){
+    let sketchpadSquares = document.querySelectorAll(".square");// Nodelist of sketchpad squares
+
+    for (var i = sketchpadSquares.length; i--;){
+        let sSqr = sketchpadSquares[i];
+
+        sSqr.style.backgroundColor = "rgb(255, 255, 255)";// Turn squares white
+    }
+}
+
 //
 // Run interaction
 //
@@ -85,3 +96,4 @@ function changeSketchRes (){
 setSketchRes(squaresPerSide);// Run the sketchpad with the default number of squares
 
 sizeButton.addEventListener("click", changeSketchRes);// Run the prompt & update pad
+clearButton.addEventListener("click", clearSketch);// Clear the sketchpad
