@@ -21,7 +21,8 @@ function removeChildren (parent){
 // Populate the sketchpad with a grid
 function createSketchGrid (){
     removeChildren(sketchpad);// Clear any previous children of the sketchpad
-
+    
+    console.log(squareCount);
     // Create the divs needed to fill the pad
     for (var i = 0; i < squareCount; i++){
         let sqr = document.createElement("div");
@@ -34,7 +35,6 @@ function createSketchGrid (){
     }
 };
 createSketchGrid();
-
 
 //
 // User Interaction
@@ -61,6 +61,7 @@ function changeSketchRes (){
     let newRes = prompt("Enter an integer between 1 and 64 to set the resolution for the sketchpad", 10);
 
     squaresPerSide = newRes;
+    squareCount = squaresPerSide * squaresPerSide;// Update squareCount
     
     // Reset the grid with new square count
     createSketchGrid();
