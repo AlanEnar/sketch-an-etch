@@ -2,10 +2,16 @@
 // Sketchpad Setup
 //
 const sketchpad = document.getElementById("sketchpad");
+const sizeButton = document.getElementById("size-button");
+
 let squaresPerSide = 4;// Number of squares per row
 let squareCount = squaresPerSide * squaresPerSide;// Total number of squares
 let sketchDimension = 400;// Dimension of the overall sketchpad in pixels
 let squareSize = Math.floor(sketchDimension/squaresPerSide);// Number of squares
+
+// Assign sketchpad dimensions
+sketchpad.style.maxWidth = sketchDimension + "px";// Ensures the right number of squares per row
+sketchpad.style.maxHeight = sketchDimension + "px";
 
 // Updates squareCount and squareSize
 function updateDimensions (){
@@ -13,18 +19,14 @@ function updateDimensions (){
     squareSize = Math.floor(sketchDimension/squaresPerSide);
 }
 
-// Assign sketchpad dimensions
-sketchpad.style.maxWidth = sketchDimension + "px";// Ensures the right number of squares per row
-sketchpad.style.maxHeight = sketchDimension + "px";
-
-// Function to remove all children of an element
+// Removes all children of an element
 function removeChildren (parent){
     while (parent.lastChild){
         parent.removeChild(parent.lastChild);
     }
 }
 
-// Populate the sketchpad with squares
+// Populates the sketchpad with squares
 function createSketchSquares (){
     removeChildren(sketchpad);// Clear any previous children of the sketchpad
     
@@ -62,8 +64,6 @@ function drawSketch (){
 }
 
 // Button interaction
-const sizeButton = document.getElementById("size-button");
-
 function setSketchRes (sps){
     squaresPerSide = sps;// Squares per side is passed when the function is called
     updateDimensions();// Update number of squares and size of squares
@@ -77,8 +77,6 @@ function changeSketchRes (){
     // Run a new sketchpad with a user-inputed number of squares"
     setSketchRes(prompt("Enter an integer between 1 and 64 to set the resolution for the sketchpad", 10));
 }
-
-
 
 //
 // Run interaction
