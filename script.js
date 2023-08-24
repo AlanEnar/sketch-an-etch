@@ -41,7 +41,6 @@ function createSketchSquares (){
         sketchpad.appendChild(sqr);
     }
 };
-createSketchSquares();
 
 //
 // User Interaction
