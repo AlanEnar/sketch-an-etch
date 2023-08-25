@@ -27,6 +27,11 @@ function removeChildren (parent){
     }
 }
 
+// Constrains a value between two limits 
+function constrain (value, min, max){
+    return value < min ? min : value > max ? max : value;
+}
+
 // Populates the sketchpad with squares
 function createSketchSquares (){
     removeChildren(sketchpad);// Clear any previous children of the sketchpad
@@ -74,8 +79,14 @@ function setSketchRes (sps){
 }
 
 function changeSketchRes (){
-    // Run a new sketchpad with a user-inputed number of squares"
-    setSketchRes(prompt("Enter an integer between 1 and 64 to set the resolution for the sketchpad", 10));
+    // Run a new sketchpad with a user-inputed number of squares
+    setSketchRes(
+        constrain(
+            prompt("Enter an integer between 1 and 100 to set the resolution for the sketchpad", 10),
+            1, 
+            100
+        )
+    );
 }
 
 function clearSketch (){
